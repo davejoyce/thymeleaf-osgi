@@ -1,88 +1,24 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<?xml version="1.0"?>
+<project
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"
+	xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 	<modelVersion>4.0.0</modelVersion>
-	<groupId>org.thymeleaf</groupId>
-	<artifactId>thymeleaf-osgi</artifactId>
-	<version>2.0.14-SNAPSHOT</version>
-	<packaging>pom</packaging>
+	<parent>
+		<groupId>org.thymeleaf</groupId>
+		<artifactId>thymeleaf-osgi</artifactId>
+		<version>2.0.14-SNAPSHOT</version>
+	</parent>
+
+	<artifactId>thymeleaf-bundle</artifactId>
+	<packaging>bundle</packaging>
 
 	<name>Thymeleaf (OSGi Bundle)</name>
-	<description>OSGi bundle packaging of the Thymeleaf XML/XHTML/HTML5 template engine for Java</description>
 	<url>http://www.thymeleaf.org</url>
-
-	<licenses>
-		<license>
-			<name>The Apache Software License, Version 2.0</name>
-			<url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
-			<distribution>repo</distribution>
-		</license>
-	</licenses>
-
-	<organization>
-		<name>The THYMELEAF team</name>
-		<url>http://www.thymeleaf.org</url>
-	</organization>
-
-	<scm>
-		<url>scm:git:git@github.com:davejoyce/thymeleaf-osgi.git</url>
-		<connection>scm:git:git@github.com:davejoyce/thymeleaf-osgi.git</connection>
-		<developerConnection>scm:git:git@github.com:davejoyce/thymeleaf-osgi.git</developerConnection>
-	</scm>
-
-	<developers>
-		<developer>
-			<id>dfernandez</id>
-			<name>Daniel Fernandez</name>
-			<email>daniel.fernandez AT 11thlabs DOT org</email>
-			<roles>
-				<role>Project admin</role>
-			</roles>
-		</developer>
-		<developer>
-			<id>davejoyce</id>
-			<name>Dave Joyce</name>
-			<email>dave AT osframework DOT org</email>
-			<roles>
-				<role>OSGi bundle-izer</role>
-			</roles>
-		</developer>
-	</developers>
-
-	<distributionManagement>
-		<snapshotRepository>
-			<id>sonatype-nexus-snapshots</id>
-			<name>Sonatype Nexus Snapshots</name>
-			<url>https://oss.sonatype.org/content/repositories/snapshots</url>
-		</snapshotRepository>
-		<repository>
-			<id>sonatype-nexus-snapshots</id>
-			<name>Sonatype Nexus Snapshots</name>
-			<url>https://oss.sonatype.org/service/local/staging/deploy/maven2</url>
-		</repository>
-	</distributionManagement>
-
-	<repositories>
-		<repository>
-			<id>sonatype-nexus-snapshots</id>
-			<name>Sonatype Nexus Snapshots</name>
-			<url>https://oss.sonatype.org/content/repositories/snapshots</url>
-			<snapshots>
-				<enabled>true</enabled>
-			</snapshots>
-		</repository>
-	</repositories>
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<bundle.symbolicName>${project.groupId}.thymeleaf</bundle.symbolicName>
-		<bundle.namespace>${project.groupId}</bundle.namespace>
-		
-		<!-- Dependency versions -->
-		<servlet-api.version>2.5</servlet-api.version>
-		<slf4j-api.version>1.6.1</slf4j-api.version>
 	</properties>
 
-<!--
 	<build>
 		<resources>
 			<resource>
@@ -140,7 +76,7 @@
 		<dependency>
 			<groupId>javax.servlet</groupId>
 			<artifactId>servlet-api</artifactId>
-			<version>2.5</version>
+			<version>${servlet-api.version}</version>
 			<scope>provided</scope>
 			<optional>true</optional>
 		</dependency>
@@ -168,12 +104,8 @@
 		<dependency>
 			<groupId>org.slf4j</groupId>
 			<artifactId>slf4j-api</artifactId>
-			<version>1.6.1</version>
+			<version>${slf4j-api.version}</version>
 			<scope>compile</scope>
 		</dependency>
 	</dependencies>
--->
-  <modules>
-    <module>thymeleaf-bundle</module>
-  </modules>
 </project>

@@ -6,8 +6,8 @@
 	<version>2.0.14-SNAPSHOT</version>
 	<packaging>bundle</packaging>
 
-	<name>Thymeleaf-OSGi</name>
-	<description>OSGi bundle packaging of the Thymeleaf project</description>
+	<name>Thymeleaf (OSGi Bundle)</name>
+	<description>OSGi bundle packaging of the Thymeleaf XML/XHTML/HTML5 template engine for Java</description>
 	<url>http://www.thymeleaf.org</url>
 
 	<licenses>
@@ -103,6 +103,8 @@
 					<instructions>
 						<Bundle-SymbolicName>${bundle.symbolicName}</Bundle-SymbolicName>
 						<Bundle-Version>${project.version}</Bundle-Version>
+						<Bundle-Name>Thymeleaf</Bundle-Name>
+						<Bundle-Description>XML/XHTML/HTML5 template engine for Java</Bundle-Description>
 						<Export-Package>${bundle.namespace}.*;version="${project.version}"</Export-Package>
 						<Import-Package>org.slf4j;version="[${slf4j-api.version},${slf4j-api.version}]",
 							javax.servlet;version="${servlet-api.version}",

@@ -1,4 +1,4 @@
-<?xml version="1.0"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <project
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"
 	xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
@@ -15,10 +15,6 @@
 	<name>Thymeleaf (OSGi Bundle)</name>
 	<url>http://www.thymeleaf.org</url>
 
-	<properties>
-		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-	</properties>
-
 	<build>
 		<resources>
 			<resource>
@@ -34,31 +30,25 @@
 			<plugin>
 				<groupId>org.apache.felix</groupId>
 				<artifactId>maven-bundle-plugin</artifactId>
-				<version>2.3.7</version>
 				<extensions>true</extensions>
 				<configuration>
 					<instructions>
 						<Bundle-SymbolicName>${bundle.symbolicName}</Bundle-SymbolicName>
-						<Bundle-Version>${project.version}</Bundle-Version>
-						<Bundle-Name>Thymeleaf</Bundle-Name>
-						<Bundle-Description>XML/XHTML/HTML5 template engine for Java</Bundle-Description>
+						<Bundle-Name>${project.name}</Bundle-Name>
 						<Export-Package>${bundle.namespace}.*;version="${project.version}"</Export-Package>
-						<Import-Package>org.slf4j;version="[${slf4j-api.version},${slf4j-api.version}]",
-							javax.servlet;version="${servlet-api.version}",
-							javax.servlet.http;version="${servlet-api.version}",
-							com.sun.jdi,
-							com.sun.jdi.connect,
-							com.sun.jdi.event,
-							com.sun.jdi.request,
-							javax.xml.parsers,
-							org.apache.xerces.parsers,
-							org.apache.xerces.xni.parser,
-							org.cyberneko.html;resolution:=optional,
-							org.w3c.dom,
-							org.xml.sax,
-							org.xml.sax.ext,
-							org.xml.sax.helpers</Import-Package>
-						<Embed-Dependency>*;scope=compile;inline=true;artifactId=!slf4j-api</Embed-Dependency>
+						<Import-Package>javassist,
+						                javax.servlet;version="2.5";resolution:=optional,
+						                javax.servlet.http;version="2.5";resolution:=optional,
+						                javax.xml.parsers,
+						                ognl,
+						                org.apache.xerces.parsers,
+						                org.apache.xerces.xni.parser,
+						                org.cyberneko.html;resolution:=optional,
+						                org.slf4j;version="[1.6,2)",
+						                org.w3c.dom,
+						                org.xml.sax,
+						                org.xml.sax.ext,
+						                org.xml.sax.helpers</Import-Package>
 					</instructions>
 				</configuration>
 			</plugin>
@@ -70,41 +60,6 @@
 			<groupId>${project.groupId}</groupId>
 			<artifactId>thymeleaf</artifactId>
 			<version>${project.version}</version>
-			<scope>compile</scope>
-		</dependency>
-
-		<dependency>
-			<groupId>javax.servlet</groupId>
-			<artifactId>servlet-api</artifactId>
-			<version>${servlet-api.version}</version>
-			<scope>provided</scope>
-			<optional>true</optional>
-		</dependency>
-
-		<dependency>
-			<groupId>ognl</groupId>
-			<artifactId>ognl</artifactId>
-			<version>3.0.5</version>
-			<scope>compile</scope>
-			<exclusions>
-				<exclusion>
-					<groupId>javassist</groupId>
-					<artifactId>javassist</artifactId>
-				</exclusion>
-			</exclusions>
-		</dependency>
-
-		<dependency>
-			<groupId>org.javassist</groupId>
-			<artifactId>javassist</artifactId>
-			<version>3.16.1-GA</version>
-			<scope>compile</scope>
-		</dependency>
-
-		<dependency>
-			<groupId>org.slf4j</groupId>
-			<artifactId>slf4j-api</artifactId>
-			<version>${slf4j-api.version}</version>
 			<scope>compile</scope>
 		</dependency>
 	</dependencies>

@@ -103,7 +103,7 @@
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.build.javaVersion>1.5</project.build.javaVersion>
-		
+
 		<bundle.symbolicName>${project.groupId}.thymeleaf</bundle.symbolicName>
 		<bundle.namespace>${project.groupId}</bundle.namespace>
 
@@ -145,5 +145,6 @@
 
 	<modules>
 		<module>thymeleaf-bundle</module>
+		<module>thymeleaf-bundle-integration-test</module>
 	</modules>
 </project>
